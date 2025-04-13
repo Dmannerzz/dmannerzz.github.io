@@ -72,11 +72,10 @@
 }
 
 .navbar .menu-toggle {
+  color: white; /* Make the hamburger icon white */
   background: none;
   border: none;
-  font-size: 1.5rem;
-  color: white;
-  display: none;
+  font-size: 2rem;
   cursor: pointer;
 }
 
@@ -99,14 +98,26 @@
     width: 100%;
     max-height: 0;
     overflow: hidden;
-    background: #1e1e2f
+    background: #1e1e2f; /* dark background */
     padding-left: 0;
   }
 
   .navbar .nav-links.show {
-    max-height: 300px; /* try increasing if it still looks too short */
+    max-height: 300px;
   }
-}
+
+  /* Style links inside the menu to be white */
+  .navbar .nav-links li a {
+    color: white; /* white text for links */
+    padding: 0.5rem 1rem;
+    display: block;
+  }
+
+  /* Optional hover effect for links */
+  .navbar .nav-links li a:hover {
+    background: #333; /* darkens slightly on hover */
+  }
+      }
     html {
   scroll-behavior: smooth;
     }
