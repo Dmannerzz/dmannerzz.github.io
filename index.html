@@ -93,21 +93,22 @@
 }
 
 @media screen and (max-width: 768px) {
-  .navbar .menu-toggle {
-    display: block;
-  }
-
   .navbar .nav-links {
     flex-direction: column;
     width: 100%;
-    display: none;
-    margin-top: 1rem;
+    display: flex;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
   }
 
   .navbar .nav-links.show {
-    display: flex;
+    max-height: 500px; /* enough space to show all links */
   }
 }
+    html {
+  scroll-behavior: smooth;
+    }
   </style>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
