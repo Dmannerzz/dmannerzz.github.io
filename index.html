@@ -85,25 +85,24 @@
   display: flex;
   gap: 1.5rem;
 }
-
-.navbar .nav-links li a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  transition: max-height 0.3s ease-in-out;
 }
 
 @media screen and (max-width: 768px) {
   .navbar .nav-links {
     flex-direction: column;
     width: 100%;
-    display: flex;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-in-out;
+    padding-left: 0;
   }
 
   .navbar .nav-links.show {
-    max-height: 500px; /* enough space to show all links */
+    max-height: 300px; /* try increasing if it still looks too short */
   }
 }
     html {
