@@ -56,10 +56,72 @@
     text-align: center;
   }
     }
+    .navbar {
+  background: #1e1e2f;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.navbar .logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.navbar .menu-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  display: none;
+  cursor: pointer;
+}
+
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar .nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar .menu-toggle {
+    display: block;
+  }
+
+  .navbar .nav-links {
+    flex-direction: column;
+    width: 100%;
+    display: none;
+    margin-top: 1rem;
+  }
+
+  .navbar .nav-links.show {
+    display: flex;
+  }
+}
   </style>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+  <nav class="navbar">
+  <div class="logo">Adedotun</div>
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#bio">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="resume.pdf" download>Resume</a></li>
+  </ul>
+  </nav>
   <header>
     <h1>Adedotun Babarinlo</h1>
     <p>Embedded Systems | IoT | Robotics Enthusiast</p>
@@ -108,5 +170,11 @@
 </script>  <footer>
     <p>Connect on <a href="https://ng.linkedin.com/in/babarinlo-adedotun-9640b4305" target="_blank">LinkedIn</a> | GitHub: <a href="https://github.com/Dmannerzz" target="_blank">Dmannerzz</a></p>
   </footer>
+    <script>
+  function toggleMenu() {
+    const nav = document.getElementById('navLinks');
+    nav.classList.toggle('show');
+  }
+    </script>
 </body>
   </html>
