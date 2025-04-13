@@ -4,6 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Adedotun Babarinlo | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
     body { background: #f5f5f5; color: #333; line-height: 1.6; }
@@ -144,16 +145,16 @@
   <header>
     <h1>Adedotun Babarinlo</h1>
     <p>Embedded Systems | IoT | Robotics Enthusiast</p>
-  </header>  <section id="bio">
+  </header>  <section id="bio" data-aos="fade-up">
   <h2>About Me</h2>
-  <p>I'm a Computer Engineering student passionate about embedded systems, IoT, and hardware-driven solutions...  <section id="projects">
+  <p>I'm a Computer Engineering student passionate about embedded systems, IoT, and hardware-driven solutions...  <section id="projects" data-aos="fade-up">
   <h2>Projects</h2>
   <div class="project-card">
     <h3>Coming Soon</h3>
     <p>Projects will be added here as I build and document them.</p>
   </div>
   </section>
-  <section id="contact" class="contact-form">
+  <section id="contact" class="contact-form" data-aos="fade-up">
   <a href="resume.pdf" download class="download-button">
     Download Resume
   </a>
@@ -195,6 +196,13 @@
     const nav = document.getElementById('navLinks');
     nav.classList.toggle('show');
   }
+</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000, // animation duration in ms
+    once: true // animation happens only once while scrolling down
+  });
 </script>
 </body>
   </html>
