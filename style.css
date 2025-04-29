@@ -214,22 +214,34 @@
 
 /* Apply animation to project section */
 .projects {
-  animation: fadeInUp 1s ease forwards;
-  opacity: 0; /* Start hidden */
-  animation-delay: 0.2s; /* Small delay to load nicely */
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem 1rem;
+  text-align: center;
 }
 
 .project-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
   opacity: 0;
   transform: translateY(30px);
-  animation: fadeInUp 0.8s ease forwards;
+  animation: slideFadeIn 1s forwards;
 }
 
-/* To stagger them */
+/* You can always add more cards */
 .project-card:nth-child(2) { animation-delay: 0.3s; }
 .project-card:nth-child(3) { animation-delay: 0.5s; }
 .project-card:nth-child(4) { animation-delay: 0.7s; }
-/* Add more if you have more cards */
 
+/* Keyframes */
+@keyframes slideFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
   </style>
