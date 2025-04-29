@@ -229,69 +229,91 @@
   transform: translateY(0);
 }
 
+/* Styling for Projects Section */
 .projects {
-  display: grid; /* Using grid layout */
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Automatically create columns */
-  gap: 1rem; /* Add space between project cards */
+  text-align: center;
   padding: 2rem 1rem;
 }
 
-.project-card {
-  background: white;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+.projects h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
+/* Flexbox layout for the project cards */
+.project-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.project-card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 350px;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
 
 /* Add zoom effect to the image on hover */
 .project-card:hover .project-img {
   transform: scale(1.05);
 }
 
-.project-card img {
+/* Project image styling */
+.project-img {
   width: 100%;
-  max-width: 400px; /* Control image size */
   height: auto;
-  display: block;
-  margin: 0 auto 1rem auto;
   border-radius: 8px;
+  transition: transform 0.3s ease;
 }
 
 .project-card h3 {
-  margin: 1rem 0;
-  text-align: center;
+  margin-top: 1rem;
+  font-size: 1.5rem;
 }
 
 .project-card p {
-  text-align: center;
-  color: #555;
+  font-size: 1rem;
+  margin: 0.5rem 0;
 }
 
+.project-link {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: #003366;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.project-link:hover {
+  background-color: #0055aa;
+}
+
+/* Responsive Styles for Mobile */
 @media screen and (max-width: 768px) {
-  .projects {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust grid layout for tablet */
-  }
-
-  .project-card img {
-    max-width: 100%; /* Make image take full width of the card */
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .projects {
-    grid-template-columns: 1fr; /* Single column layout for mobile */
+  .project-container {
+    flex-direction: column;
+    align-items: center;
   }
 
   .project-card {
-    padding: 0.8rem; /* Adjust padding for mobile */
+    width: 90%;
+    margin-bottom: 1.5rem;
   }
 }
-
-
 
   </style>
