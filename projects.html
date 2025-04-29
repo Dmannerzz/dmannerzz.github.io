@@ -25,7 +25,44 @@
 
   <section class="projects">
     <div class="project-card">
-      <h3>Coming Soon</h3>
+     <h2>Fusion 360 Designs</h2>
+
+  <div class="project-card design-card">
+    <div class="design-image">
+      <img src="designs/ToyBlock.png" alt="Fusion 360 Model 1">
+    </div>
+    <h3>Toy Block</h3>
+    <p>A sleek, durable toy block designed with precision in Fusion 360, perfect for creative building and endless play.</p>
+    <a href="designs/ToyBlock.stl" class="download-button" download>Download STL</a>
+  </div>
+
+  <div class="project-card design-card">
+    <div class="design-image">
+      <img src="designs/Soda_Bottle.png" alt="Fusion 360 Model 2">
+    </div>
+    <h3>Soda Bottle</h3>
+    <p>A stylish, ergonomic soda bottle designed in Fusion 360, combining functionality with a modern, eye-catching shape for maximum refreshment appeal.</p>
+    <a href="designs/Soda_Bottle.stl" class="download-button" download>Download STL</a>
+  </div>
+</section>
+
+<style>
+.design-card .design-image {
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.design-card .design-image img {
+  width: 100%;
+  transition: transform 0.5s ease;
+  border-radius: 8px;
+}
+
+.design-card .design-image:hover img {
+  transform: scale(1.05);
+}
+</style>
       <p>Projects will be added here as I build and document them.</p>
     </div>
   </section>
