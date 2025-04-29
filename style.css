@@ -137,7 +137,7 @@
     }
 
 /* Ensure the button has visible text and is styled correctly */
-.view-project-button {
+.view-projects-button {
   display: inline-block;
   padding: 10px 20px;
   background-color: #003366; /* Button background color */
@@ -148,7 +148,7 @@
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.view-project-button:hover {
+.view-projects-button:hover {
   background-color: #0055aa; /* Hover background color */
   transform: scale(1.05); /* Slight zoom effect on hover */
 }
@@ -166,7 +166,7 @@
 }
 
 /* Modify the button style */
-.project-button {
+.view-project-button {
   display: inline-block;
   padding: 10px 20px;
   background-color: #003366 !important; /* Button background color */
@@ -177,7 +177,7 @@
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.project-button:hover {
+.view-project-button:hover {
   background-color: #0055aa !important; /* Hover background color */
   transform: scale(1.05); /* Slight zoom effect on hover */
 }
