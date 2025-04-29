@@ -166,25 +166,22 @@
 }
 
 /* Modify the button style */
-.view-projects-button {
+.project-button {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #1e1e2f;
-  color: white;
-  text-decoration: none;
+  background-color: #003366 !important; /* Button background color */
+  color: white !important; /* Text color */
+  text-decoration: none !important; /* Remove underline */
   border-radius: 8px;
   font-weight: bold;
-  transition: background-color 0.3s ease;
-  animation: fadeSlideUp 1s ease forwards;
-  animation-delay: 0.3s;
-
-  opacity: 0; /* Start hidden until animation */
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Button hover effect */
-.view-projects-button:hover {
-  background-color: #333;
+.project-button:hover {
+  background-color: #0055aa !important; /* Hover background color */
+  transform: scale(1.05); /* Slight zoom effect on hover */
 }
+
 
 /* Animation for sections */
 @keyframes fadeInUp {
