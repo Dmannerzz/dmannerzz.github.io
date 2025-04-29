@@ -166,23 +166,27 @@
 }
 
 /* Modify the button style */
-nav .view-project-button {
+.view-projects-button {
   display: inline-block;
   padding: 10px 20px;
   background-color: #003366;
-  color: white;
-  text-decoration: none;
+  color: white; /* Make sure text color is white */
+  text-decoration: none; /* Remove underline */
   border-radius: 8px;
   font-weight: bold;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-nav .view-project-button:hover {
+.view-projects-button:hover {
   background-color: #0055aa;
   transform: scale(1.05); /* Slight zoom effect */
 }
 
+.view-projects-button a {
+  color: inherit; /* Inherit the color from the parent */
+  text-decoration: none;
 }
+
 
 
 /* Animation for sections */
