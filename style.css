@@ -229,31 +229,10 @@
   transform: translateY(0);
 }
 
-.project-card img {
-  width: 100%;
-  max-width: 500px; /* Default for desktop */
-  height: auto;
-  display: block;
-  margin: 0 auto 1rem auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-@media screen and (max-width: 768px) {
-  .project-card img {
-    max-width: 350px; /* Smaller images on tablets */
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .project-card img {
-    max-width: 250px; /* Even smaller images on mobile */
-  }
-}
 .projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Grid layout */
-  gap: 1rem;
+  display: grid; /* Using grid layout */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Automatically create columns */
+  gap: 1rem; /* Add space between project cards */
   padding: 2rem 1rem;
 }
 
@@ -270,11 +249,43 @@
 
 .project-card img {
   width: 100%;
-  max-width: 400px; /* You can change the max-width here as per your preference */
+  max-width: 400px; /* Control image size */
   height: auto;
   display: block;
   margin: 0 auto 1rem auto;
+  border-radius: 8px;
 }
+
+.project-card h3 {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.project-card p {
+  text-align: center;
+  color: #555;
+}
+
+@media screen and (max-width: 768px) {
+  .projects {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust grid layout for tablet */
+  }
+
+  .project-card img {
+    max-width: 100%; /* Make image take full width of the card */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .projects {
+    grid-template-columns: 1fr; /* Single column layout for mobile */
+  }
+
+  .project-card {
+    padding: 0.8rem; /* Adjust padding for mobile */
+  }
+}
+
 
 
   </style>
