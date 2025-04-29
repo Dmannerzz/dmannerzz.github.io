@@ -247,6 +247,16 @@
   justify-content: space-between;
 }
 
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Add zoom effect to the image on hover */
+.project-card:hover .project-img {
+  transform: scale(1.05);
+}
+
 .project-card img {
   width: 100%;
   max-width: 400px; /* Control image size */
