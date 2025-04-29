@@ -135,4 +135,85 @@
     html {
   scroll-behavior: smooth;
     }
+
+.view-projects-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #1e1e2f;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.view-projects-button:hover {
+  background-color: #333;
+}
+
+/* Animation keyframes */
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Modify the button style */
+.view-projects-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #1e1e2f;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  animation: fadeSlideUp 1s ease forwards;
+  animation-delay: 0.3s;
+
+  opacity: 0; /* Start hidden until animation */
+}
+
+/* Button hover effect */
+.view-projects-button:hover {
+  background-color: #333;
+}
+
+/* Animation for sections */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply animation to project section */
+.projects {
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0; /* Start hidden */
+  animation-delay: 0.2s; /* Small delay to load nicely */
+}
+
+.project-card {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* To stagger them */
+.project-card:nth-child(1) { animation-delay: 0.4s; }
+.project-card:nth-child(2) { animation-delay: 0.6s; }
+.project-card:nth-child(3) { animation-delay: 0.8s; }
+/* Add more if you have more cards */
+
+
   </style>
