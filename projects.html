@@ -45,6 +45,23 @@
     <p>Back to <a href="index.html">Home</a></p>
     <p>Connect on <a href="https://ng.linkedin.com/in/babarinlo-adedotun-9640b4305" target="_blank">LinkedIn</a> | GitHub: <a href="https://github.com/Dmannerzz" target="_blank">Dmannerzz</a></p>
   </footer>
+<script>
+  const cards = document.querySelectorAll('.project-card');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  cards.forEach(card => {
+    observer.observe(card);
+  });
+</script>
 
 </body>
 </html>
