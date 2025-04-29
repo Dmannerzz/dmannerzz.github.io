@@ -247,10 +247,6 @@
   justify-content: space-between;
 }
 
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
 
 /* Add zoom effect to the image on hover */
 .project-card:hover .project-img {
