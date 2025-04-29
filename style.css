@@ -250,7 +250,31 @@
     max-width: 250px; /* Even smaller images on mobile */
   }
 }
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Grid layout */
+  gap: 1rem;
+  padding: 2rem 1rem;
+}
 
+.project-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.project-card img {
+  width: 100%;
+  max-width: 400px; /* You can change the max-width here as per your preference */
+  height: auto;
+  display: block;
+  margin: 0 auto 1rem auto;
+}
 
 
   </style>
