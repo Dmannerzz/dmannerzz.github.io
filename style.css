@@ -213,13 +213,6 @@
 }
 
 /* Apply animation to project section */
-.projects {
-  max-width: 900px;
-  margin: auto;
-  padding: 2rem 1rem;
-  text-align: center;
-}
-
 .project-card {
   background: white;
   padding: 1.5rem;
@@ -235,6 +228,29 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+.project-card img {
+  width: 100%;
+  max-width: 500px; /* Default for desktop */
+  height: auto;
+  display: block;
+  margin: 0 auto 1rem auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 768px) {
+  .project-card img {
+    max-width: 350px; /* Smaller images on tablets */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .project-card img {
+    max-width: 250px; /* Even smaller images on mobile */
+  }
+}
+
 
 
   </style>
