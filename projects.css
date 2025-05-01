@@ -127,45 +127,37 @@ footer a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #222;
+  background-color: #2c2c2c;
   color: white;
-  padding: 0.75rem 1.5rem;
+  padding: 1rem;
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
-.nav-left {
+.navbar-left,
+.navbar-center,
+.navbar-right {
   flex: 1;
-  font-size: 1.2rem;
-  font-weight: bold;
 }
 
-.nav-center {
-  flex: 1;
+.navbar-center {
   text-align: center;
-  font-size: 1rem;
   font-weight: 500;
 }
 
-.nav-right {
-  flex: 1;
-  display: flex;
-  justify-content: flex-end;
-  list-style: none;
+.navbar-right {
+  text-align: right;
 }
 
-.nav-right li a {
+.navbar-right a {
   color: white;
   text-decoration: none;
   font-weight: 500;
-  padding: 0.5rem 1rem;
 }
 
-.nav-right li a:hover {
+.navbar-right a:hover {
   text-decoration: underline;
 }
-
-
 
   </style>
