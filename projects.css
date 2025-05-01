@@ -123,5 +123,49 @@ footer a:hover {
   color: white;
 }
 
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #222;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-left {
+  flex: 1;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.nav-center {
+  flex: 1;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.nav-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+}
+
+.nav-right li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+}
+
+.nav-right li a:hover {
+  text-decoration: underline;
+}
+
+
 
   </style>
