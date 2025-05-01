@@ -153,6 +153,10 @@
   transform: scale(1.05);
 }
 
+.view-projects-button {
+  border: 2px solid red;
+}
+
 /* Animation keyframes */
 @keyframes fadeSlideUp {
   0% {
