@@ -123,30 +123,5 @@ footer a:hover {
   color: white;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1rem;
-  background-color: #333;
-  color: white;
-}
-
-.nav-left,
-.nav-center,
-.nav-right {
-  flex: 1;
-  text-align: center;
-}
-
-.nav-left {
-  text-align: left;
-}
-
-.nav-right {
-  text-align: right;
-}
-
-
 
   </style>
