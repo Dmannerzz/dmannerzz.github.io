@@ -140,17 +140,17 @@
 .view-projects-button {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #003366; /* Button background color */
-  color: white; /* Text color */
-  text-decoration: none; /* Remove underline */
-  border-radius: 8px;
-  font-weight: bold;
+  background-color: #003366; /* Deep blue */
+  color: white;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .view-projects-button:hover {
-  background-color: #0055aa; /* Hover background color */
-  transform: scale(1.05); /* Slight zoom effect on hover */
+  background-color: #0055aa;
+  transform: scale(1.05);
 }
 
 /* Animation keyframes */
