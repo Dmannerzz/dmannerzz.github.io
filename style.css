@@ -140,11 +140,11 @@
 .view-projects-button {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #003366; /* Deep blue */
-  color: white;
-  border-radius: 6px;
-  font-weight: 600;
-  text-decoration: none;
+  background-color: #003366;
+  color: white !important; /* Force white text */
+  text-decoration: none !important; /* Ensure no underline */
+  border-radius: 8px;
+  font-weight: bold;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
@@ -164,29 +164,6 @@
     transform: translateY(0);
   }
 }
-
-/* Modify the button style */
-.view-projects-button {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #003366;
-  color: white; /* Make sure text color is white */
-  text-decoration: none; /* Remove underline */
-  border-radius: 8px;
-  font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.view-projects-button:hover {
-  background-color: #0055aa;
-  transform: scale(1.05); /* Slight zoom effect */
-}
-
-.view-projects-button a {
-  color: inherit; /* Inherit the color from the parent */
-  text-decoration: none;
-}
-
 
 
 /* Animation for sections */
