@@ -1,4 +1,4 @@
- <style>
+<style>
 /* Global reset for padding and margins */
 * {
   margin: 0;
@@ -16,11 +16,21 @@ nav {
   background-color: #333;
   color: white;
   padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .navbar .logo {
   font-size: 1.5rem;
   font-weight: bold;
+}
+
+.nav-title {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 1.2rem;
 }
 
 .nav-links {
@@ -37,6 +47,7 @@ nav {
   text-decoration: none;
 }
 
+/* Grid layout for projects */
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -46,18 +57,21 @@ nav {
   margin: 0 auto;
 }
 
+/* Card styling */
 .project-card {
   background: white;
   padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
-  transform: scale(1.05);
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
+/* Image inside card */
 .project-card img {
   width: 100%;
   max-width: 400px;
@@ -67,6 +81,23 @@ nav {
   border-radius: 8px;
 }
 
+.project-card img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin: 0 auto 1rem auto;
+  display: block;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.project-card:hover img {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Download button */
 .download-button {
   display: inline-block;
   background-color: #333;
@@ -76,16 +107,20 @@ nav {
   border-radius: 5px;
   text-align: center;
   margin-top: 10px;
+  transition: background-color 0.3s ease;
 }
 
 .download-button:hover {
   background-color: #555;
 }
 
-/* Responsive Design */
+/* Responsive design tweaks */
 @media screen and (max-width: 768px) {
   .project-card img {
     max-width: 300px;
+  }
+  .nav-title {
+    font-size: 1rem;
   }
 }
 
@@ -95,6 +130,13 @@ nav {
   }
   .project-card img {
     max-width: 100%;
+  }
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-links {
+    margin-top: 10px;
   }
 }
 
@@ -113,6 +155,4 @@ footer a {
 footer a:hover {
   color: white;
 }
-
-
-  </style>
+</style>
