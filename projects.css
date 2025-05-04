@@ -1,5 +1,5 @@
  <style>
-  /* Global reset for padding and margins */
+/* Global reset for padding and margins */
 * {
   margin: 0;
   padding: 0;
@@ -10,15 +10,6 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   color: #333;
-}
-
-.navbar {
-  display: flex;
-  justify-content: center; 
-  align-items: center;     
-  height: 60px;            
-  background-color: #333;
-  color: white;
 }
 
 nav {
@@ -123,41 +114,5 @@ footer a:hover {
   color: white;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #2c2c2c;
-  color: white;
-  padding: 1rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.navbar-left,
-.navbar-center,
-.navbar-right {
-  flex: 1;
-}
-
-.navbar-center {
-  text-align: center;
-  font-weight: 500;
-}
-
-.navbar-right {
-  text-align: right;
-}
-
-.navbar-right a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.navbar-right a:hover {
-  text-decoration: underline;
-}
 
   </style>
