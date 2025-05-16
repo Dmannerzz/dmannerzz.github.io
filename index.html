@@ -7,6 +7,37 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .confirmation-message {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+      padding: 1rem;
+      border-radius: 6px;
+      margin-top: 1rem;
+      text-align: center;
+      font-weight: 500;
+      animation: fadeIn 0.5s ease-in-out;
+      position: relative;
+    }
+
+    .confirmation-message button {
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #155724;
+      cursor: pointer;
+      position: absolute;
+      top: 8px;
+      right: 12px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
 
@@ -49,10 +80,11 @@
       <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
       <button type="submit">Send Message</button>
     </form>
-    <div id="confirmation" class="confirmation-message" style="display:none;">
-  ✅ Message sent successfully. Thank you!
-</div>
 
+    <div id="confirmation" class="confirmation-message" style="display:none;">
+      ✅ Message sent successfully. Thank you!
+      <button onclick="this.parentElement.style.display='none'">❌</button>
+    </div>
   </section>
 
   <footer>
@@ -83,6 +115,11 @@
       if (response.ok) {
         form.reset();
         confirmation.style.display = 'block';
+
+        // Auto-hide after 5 seconds
+        setTimeout(() => {
+          confirmation.style.display = 'none';
+        }, 5000);
       } else {
         const data = await response.json();
         alert(data?.error || 'Something went wrong. Please try again.');
