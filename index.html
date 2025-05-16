@@ -63,25 +63,26 @@
       nav.classList.toggle('show');
     }
 
-    const form = document.getElementById('contactForm');
-    const confirmation = document.getElementById('confirmation');
+  const form = document.getElementById('contactForm');
+  const confirmation = document.getElementById('confirmation');
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const formData = new FormData(form);
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      });
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
 
-      if (response.ok) {
-        form.reset();
-        confirmation.style.display = 'block';
-      } else {
-        alert('Something went wrong. Please try again.');
-      }
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: formData
     });
+
+    if (response.ok) {
+      form.reset();
+      confirmation.style.display = 'block';
+    } else {
+      alert('Something went wrong. Please try again.');
+    }
+  });
+
   </script>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
