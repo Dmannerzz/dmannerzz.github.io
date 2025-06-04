@@ -1,30 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>3D Web Models</title>
-  <link rel="stylesheet" href="webmodels.css">
-  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <link rel="stylesheet" href="webmodels.css" />
+  <script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"
+  ></script>
 </head>
 <body>
-  <section class="model-demo-section">
-  <h2>Featured 3D Model</h2>
-  
-  <div class="model-section">
-  <h3>Propeller Demo</h3>
-  <model-viewer src="models/your-model.glb" alt="3D Model" auto-rotate camera-controls style="width: 100%; height: 500px;"></model-viewer>
-  <p class="license-note">Download the model in your preferred format:</p>
-  <div style="margin-top: 1rem;">
-    <a href="models/propeller.stl" download class="download-button">Download STL</a>
-    <a href="models/propeller.obj" download class="download-button">Download OBJ</a>
-    <a href="models/propeller.step" download class="download-button">Download STEP</a>
+  <div id="webmodels">
+    <h2>Featured 3D Model</h2>
+
+    <section class="model-section">
+      <h3>Propeller Demo</h3>
+      <model-viewer
+        src="models/your-model.glb"
+        alt="3D Model"
+        auto-rotate
+        camera-controls
+        style="width: 100%; height: 500px;"
+      ></model-viewer>
+      <p class="license-note">Download the model in your preferred format:</p>
+      <div class="download-links" style="margin-top: 1rem;">
+        <a href="models/propeller.stl" download class="download-button"
+          >Download STL</a
+        >
+        <a href="models/propeller.obj" download class="download-button"
+          >Download OBJ</a
+        >
+        <a href="models/propeller.step" download class="download-button"
+          >Download STEP</a
+        >
+      </div>
+    </section>
   </div>
-</div>
-
-</section>
-
-
 </body>
 </html>
-
