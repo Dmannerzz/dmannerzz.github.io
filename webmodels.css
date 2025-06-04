@@ -1,20 +1,23 @@
 body {
   /* Background image with dark overlay */
-  background: url('https://www.transparenttextures.com/patterns/dark-mosaic.png') repeat;
+  background: url("https://www.transparenttextures.com/patterns/dark-mosaic.png") repeat;
   background-color: #12121e;
   color: #e0e0e0;
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   position: relative;
   min-height: 100vh;
 }
 
 /* Dark overlay to deepen background */
 body::before {
-  content: '';
+  content: "";
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-color: rgba(18, 18, 30, 0.75); /* semi-transparent dark overlay */
   pointer-events: none;
   z-index: -1;
@@ -22,21 +25,25 @@ body::before {
 
 #webmodels {
   max-width: 800px;
-  width: 90%;
   margin: 3rem auto;
   padding: 2rem 1rem;
   background-color: #1e1e2f;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
   text-align: center;
   color: #f5f5f5;
 }
 
 #webmodels h2,
 .model-section h3 {
-  color: #ffffff; /* changed to white */
+  color: #ffffff; /* white titles */
   margin-bottom: 1rem;
-  font-size: 1.8rem;
+}
+
+.model-description {
+  color: #bbb;
+  font-size: 1rem;
+  margin: 0.5rem 0 1.2rem 0;
 }
 
 #webmodels p {
@@ -58,9 +65,8 @@ body::before {
   padding: 2rem;
   margin: 2rem auto;
   max-width: 900px;
-  width: 90%;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.7);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
   text-align: center;
   color: #ccc;
 }
@@ -96,38 +102,11 @@ body::before {
   margin-top: 1rem;
 }
 
-@media screen and (max-width: 768px) {
-  .model-section iframe {
-    height: 300px;
-  }
-
-  .download-button {
-    flex: 1 1 100%;
-  }
-
-  #webmodels h2,
-  .model-section h3 {
-    font-size: 1.4rem;
-  }
-
-  #webmodels,
-  .model-section {
-    padding: 1rem;
-    margin: 1.5rem auto;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .download-button {
-    padding: 12px 0;
-    font-size: 1rem;
-  }
-}
-
+/* Fixed Home Button */
 .home-button {
   position: fixed;
   bottom: 20px;
-  left: 20px; /* or right: 20px; to place in bottom-right */
+  left: 20px;
   background-color: #003366;
   color: white;
   padding: 12px 18px;
@@ -145,3 +124,12 @@ body::before {
   transform: scale(1.05);
 }
 
+@media screen and (max-width: 768px) {
+  .model-section iframe {
+    height: 300px;
+  }
+
+  .download-button {
+    flex: 1 1 100%;
+  }
+}
