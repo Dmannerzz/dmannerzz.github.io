@@ -11,32 +11,67 @@
   ></script>
 </head>
 <body>
-  <div id="webmodels">
+  <a href="index.html" class="home-button">← Home</a>
+
+  <section id="webmodels">
     <h2>Featured 3D Model</h2>
 
-    <section class="model-section">
-      <h3>Propeller Demo</h3>
-      <model-viewer
-        src="models/your-model.glb"
-        alt="3D Model"
-        auto-rotate
-        camera-controls
-        style="width: 100%; height: 500px;"
-      ></model-viewer>
-      <p class="license-note">Download the model in your preferred format:</p>
-      <div class="download-links" style="margin-top: 1rem;">
-        <a href="models/propeller.stl" download class="download-button"
-          >Download STL</a
-        >
-        <a href="models/propeller.obj" download class="download-button"
-          >Download OBJ</a
-        >
-        <a href="models/propeller.step" download class="download-button"
-          >Download STEP</a
-        >
-      </div>
-    </section>
-  </div>
-  <a href="index.html" class="home-button">← Home</a>
+    <div id="models-container"></div>
+  </section>
+
+  <script>
+    const models = [
+      {
+        title: "Propeller Demo",
+        description:
+          "A rotating propeller model used for aerodynamic studies.",
+        file: "models/propeller.glb",
+        stl: "models/propeller.stl",
+        obj: "models/propeller.obj",
+        step: "models/propeller.step",
+      },
+      {
+        title: "Fan Blade",
+        description: "Detailed fan blade with realistic textures.",
+        file: "models/fanblade.glb",
+        stl: "models/fanblade.stl",
+        obj: "models/fanblade.obj",
+        step: "models/fanblade.step",
+      },
+      {
+        title: "Gear Assembly",
+        description: "Mechanical gear assembly showing moving parts.",
+        file: "models/gear.glb",
+        stl: "models/gear.stl",
+        obj: "models/gear.obj",
+        step: "models/gear.step",
+      },
+    ];
+
+    const container = document.getElementById("models-container");
+
+    models.forEach((model) => {
+      const section = document.createElement("div");
+      section.className = "model-section";
+      section.innerHTML = `
+        <h3>${model.title}</h3>
+        <model-viewer
+          src="${model.file}"
+          alt="${model.title}"
+          auto-rotate
+          camera-controls
+          style="width: 100%; height: 500px;"
+        ></model-viewer>
+        <p class="model-description">${model.description}</p>
+        <p class="license-note">Download the model in your preferred format:</p>
+        <div class="download-links">
+          <a href="${model.stl}" download class="download-button">Download STL</a>
+          <a href="${model.obj}" download class="download-button">Download OBJ</a>
+          <a href="${model.step}" download class="download-button">Download STEP</a>
+        </div>
+      `;
+      container.appendChild(section);
+    });
+  </script>
 </body>
 </html>
