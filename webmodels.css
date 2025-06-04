@@ -169,6 +169,12 @@ body.light-theme .model-section {
   box-shadow: 0 6px 15px rgba(0,0,0,0.1);
 }
 
+body.light-theme #webmodels h2,
+body.light-theme .model-section h3 {
+  color: #1a1a1a; /* A dark color for visibility on light backgrounds */
+}
+
+
 body.light-theme model-viewer {
   background: #fff;
 }
