@@ -1,58 +1,56 @@
-
 body {
-  background-color: #f0f0ff;
+  background-color: #12121e;  /* Dark background */
   font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
-  color: #222;
+  color: #e0e0e0; /* Light text */
 }
 
 #webmodels {
   max-width: 800px;
   margin: 3rem auto;
-  padding: 2rem;
-  background: white;
+  padding: 2rem 1rem;
+  background-color: #1e1e2f; /* Dark card background */
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.7); /* stronger shadow */
   text-align: center;
 }
 
 #webmodels h2 {
   font-size: 2rem;
-  color: #003366;
+  color: #90caf9; /* Soft light blue */
   margin-bottom: 1rem;
 }
 
 #webmodels p {
   font-size: 1.1rem;
-  color: #555;
-}
-
-#webmodels {
-  padding: 2rem 1rem;
-  background-color: #1e1e2f;
+  color: #bbb; /* lighter gray for readability */
 }
 
 #webmodels .project-card {
   background: #2c2c3e;
   border-radius: 8px;
   padding: 1.5rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
   text-align: center;
-}
-
-#webmodels h2, #webmodels p {
-  color: #f5f5f5;
+  color: #ddd;
 }
 
 .model-section {
-  background: #f0f4f8;
+  background: #1a1a2e; /* dark background */
   padding: 2rem;
   margin: 2rem auto;
   max-width: 900px;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.7);
   text-align: center;
+  color: #ccc;
+}
+
+.model-section h3 {
+  font-size: 1.5rem;
+  color: #90caf9; /* consistent blue */
+  margin-bottom: 1rem;
 }
 
 .download-button {
@@ -75,14 +73,7 @@ body {
 .license-note {
   margin-top: 0.5rem;
   font-size: 0.9rem;
-  color: #555;
-}
-
-/* ✅ Newly added styles below */
-.model-section h3 {
-  font-size: 1.5rem;
-  color: #003366;
-  margin-bottom: 1rem;
+  color: #888;
 }
 
 .download-links {
