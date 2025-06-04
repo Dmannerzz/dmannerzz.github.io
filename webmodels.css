@@ -20,9 +20,9 @@ body::before {
   z-index: -1;
 }
 
-
 #webmodels {
   max-width: 800px;
+  width: 90%;
   margin: 3rem auto;
   padding: 2rem 1rem;
   background-color: #1e1e2f;
@@ -36,6 +36,7 @@ body::before {
 .model-section h3 {
   color: #ffffff; /* changed to white */
   margin-bottom: 1rem;
+  font-size: 1.8rem;
 }
 
 #webmodels p {
@@ -57,6 +58,7 @@ body::before {
   padding: 2rem;
   margin: 2rem auto;
   max-width: 900px;
+  width: 90%;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.7);
   text-align: center;
@@ -101,5 +103,23 @@ body::before {
 
   .download-button {
     flex: 1 1 100%;
+  }
+
+  #webmodels h2,
+  .model-section h3 {
+    font-size: 1.4rem;
+  }
+
+  #webmodels,
+  .model-section {
+    padding: 1rem;
+    margin: 1.5rem auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .download-button {
+    padding: 12px 0;
+    font-size: 1rem;
   }
 }
