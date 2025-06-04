@@ -53,7 +53,6 @@
       const section = document.createElement("div");
       section.className = "model-section";
 
-      // Note: we use data-src and remove src initially for lazy loading
       section.innerHTML = `
         <h3>${model.title}</h3>
         <model-viewer
@@ -74,7 +73,6 @@
       container.appendChild(section);
     });
 
-    // Lazy loading with Intersection Observer
     const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -87,15 +85,17 @@
       });
     });
 
-    // Observe all model-viewers and remove src initially
     const modelViewers = document.querySelectorAll("model-viewer");
     modelViewers.forEach((mv) => {
       mv.dataset.src = mv.getAttribute("data-src") || "";
-      // Just to be sure, remove src attribute if it exists
       mv.removeAttribute("src");
       observer.observe(mv);
+
+      // Add fade-in effect when model loads
+      mv.addEventListener("load", () => {
+        mv.setAttribute("loaded", "");
+      });
     });
   </script>
 </body>
 </html>
-
