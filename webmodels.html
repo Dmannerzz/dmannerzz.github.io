@@ -1,510 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>3D Web Models Gallery</title>
-<meta name="description" content="Explore and download featured 3D models with interactive viewer and filters." />
-<style>
-  /* Reset & base */
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    margin: 0; padding: 0;
-    font-family: 'Poppins', sans-serif;
-    min-height: 100vh;
-    background: var(--bg);
-    color: var(--text);
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  :root {
-    --bg: #12121e;
-    --overlay: rgba(18, 18, 30, 0.75);
-    --text: #e0e0e0;
-    --card-bg: #1a1a2e;
-    --card-shadow: rgba(0,0,0,0.7);
-    --btn-bg: #003366;
-    --btn-hover: #0055aa;
-    --link: #90cdf4;
-    --spinner: #90cdf4;
-  }
-  [data-theme="light"] {
-    --bg: #f0f0f5;
-    --overlay: rgba(255,255,255,0.75);
-    --text: #222;
-    --card-bg: #fff;
-    --card-shadow: rgba(0,0,0,0.1);
-    --btn-bg: #0055aa;
-    --btn-hover: #003366;
-    --link: #0366d6;
-    --spinner: #0366d6;
-  }
-
-  /* Dark overlay background pattern */
-  body::before {
-    content: '';
-    position: fixed;
-    top:0; left:0; right:0; bottom:0;
-    background: url('https://www.transparenttextures.com/patterns/dark-mosaic.png') repeat;
-    background-color: var(--bg);
-    opacity: 0.15;
-    pointer-events: none;
-    z-index: -1;
-    transition: background-color 0.3s ease;
-  }
-
-  /* Container */
-  #webmodels {
-    max-width: 900px;
-    margin: 4rem auto 3rem;
-    padding: 2rem 1.5rem;
-    background-color: var(--card-bg);
-    box-shadow: 0 4px 20px var(--card-shadow);
-    border-radius: 12px;
-  }
-
-  /* Headings */
-  #webmodels h1, #webmodels h2 {
-    color: var(--text);
-    text-align: center;
-    margin-bottom: 1.5rem;
-  }
-  .model-section h3 {
-    color: var(--text);
-    margin-bottom: 0.5rem;
-  }
-
-  /* Search box */
-  #searchBox {
-    width: 100%;
-    max-width: 400px;
-    padding: 10px 15px;
-    font-size: 1rem;
-    margin: 0 auto 2rem;
-    display: block;
-    border: 2px solid var(--btn-bg);
-    border-radius: 8px;
-    background-color: var(--bg);
-    color: var(--text);
-    transition: border-color 0.3s ease;
-  }
-  #searchBox:focus {
-    border-color: var(--btn-hover);
-    outline: none;
-  }
-
-  /* Model card */
-  .model-section {
-    background-color: var(--card-bg);
-    border-radius: 12px;
-    box-shadow: 0 4px 15px var(--card-shadow);
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    text-align: center;
-    color: var(--text);
-    position: relative;
-  }
-
-  /* Model-viewer styling & lazy fade-in */
-  model-viewer {
-    display: block;
-    width: 100%;
-    height: 400px;
-    background-color: #222;
-    border-radius: 8px;
-    transition: opacity 0.6s ease-in;
-    opacity: 0;
-  }
-  model-viewer[loaded] {
-    opacity: 1;
-  }
-
-  /* Loading spinner inside model-viewer */
-  .spinner {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    border: 4px solid transparent;
-    border-top: 4px solid var(--spinner);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 1s linear infinite;
-    z-index: 10;
-  }
-  @keyframes spin {
-    0% {transform: translate(-50%, -50%) rotate(0deg);}
-    100% {transform: translate(-50%, -50%) rotate(360deg);}
-  }
-
-  /* Description */
-  .model-description {
-    margin-top: 1rem;
-    color: var(--text);
-    font-size: 1rem;
-    max-height: 3rem;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
-    cursor: pointer;
-  }
-  .model-description.expanded {
-    max-height: 10rem;
-  }
-
-  /* License note */
-  .license-note {
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
-    color: #888;
-  }
-
-  /* Download links */
-  .download-links {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: center;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-  }
-  .download-button {
-    background-color: var(--btn-bg);
-    color: white;
-    font-weight: 600;
-    padding: 10px 18px;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    user-select: none;
-  }
-  .download-button:hover,
-  .download-button:focus {
-    background-color: var(--btn-hover);
-    outline: none;
-  }
-
-  /* Home button */
-  .home-button {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    background-color: var(--btn-bg);
-    color: white;
-    padding: 10px 18px;
-    border-radius: 8px;
-    font-weight: 700;
-    text-decoration: none;
-    z-index: 1000;
-    transition: background-color 0.3s ease;
-  }
-  .home-button:hover,
-  .home-button:focus {
-    background-color: var(--btn-hover);
-    outline: none;
-  }
-
-  /* Dark/light toggle */
-  .theme-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: var(--btn-bg);
-    color: white;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 8px;
-    font-weight: 700;
-    cursor: pointer;
-    z-index: 1000;
-    transition: background-color 0.3s ease;
-  }
-  .theme-toggle:hover,
-  .theme-toggle:focus {
-    background-color: var(--btn-hover);
-    outline: none;
-  }
-
-  /* Share buttons */
-  .share-buttons {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-  }
-  .share-button {
-    background-color: var(--btn-bg);
-    border: none;
-    color: white;
-    font-weight: 700;
-    padding: 8px 14px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    user-select: none;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.9rem;
-  }
-  .share-button:hover,
-  .share-button:focus {
-    background-color: var(--btn-hover);
-    outline: none;
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    model-viewer {
-      height: 300px;
-    }
-    #webmodels {
-      margin: 3rem 1rem 3rem;
-      padding: 1.5rem 1rem;
-    }
-  }
-</style>
-
-<script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3D Web Models for Designers</title>
+  <link rel="stylesheet" href="webmodels.css" />
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
+  <button id="returnHomeBtn" title="Return to Home">&#x2190; Home</button>
+  <button id="themeToggleBtn" title="Toggle Dark/Light Mode">🌙</button>
 
-<a href="index.html" class="home-button" aria-label="Return to homepage">← Home</a>
-<button class="theme-toggle" aria-pressed="false" aria-label="Toggle dark/light theme">🌙 Dark Mode</button>
+  <section id="webmodels">
+    <h2>Featured 3D Models for Website Designers</h2>
 
-<section id="webmodels" aria-label="3D Models Gallery">
-  <h1>Featured 3D Models</h1>
+    <div id="modelsContainer">
+      <!-- Models will be dynamically inserted here -->
+    </div>
+  </section>
 
-  <input
-    type="search"
-    id="searchBox"
-    placeholder="Search models..."
-    aria-label="Search 3D models"
-  />
-
-  <div id="models-container"></div>
-</section>
-
-<script>
-  // Model data
-  const models = [
-    {
-      title: "Propeller Demo",
-      description:
-        "A rotating propeller model used for aerodynamic studies. Click description to expand or collapse.",
-      file: "models/propeller.glb",
-      stl: "models/propeller.stl",
-      obj: "models/propeller.obj",
-      step: "models/propeller.step",
-      alt: "3D model of a propeller",
-    },
-    {
-      title: "Robot Arm",
-      description:
-        "Articulated robotic arm used in manufacturing automation. Supports rotation and gripping.",
-      file: "models/robot-arm.glb",
-      stl: "models/robot-arm.stl",
-      obj: "models/robot-arm.obj",
-      step: "models/robot-arm.step",
-      alt: "3D model of a robotic arm",
-    },
-    {
-      title: "Futuristic Car",
-      description:
-        "Sleek futuristic vehicle with aerodynamic curves and detailed interiors.",
-      file: "models/futuristic-car.glb",
-      stl: "models/futuristic-car.stl",
-      obj: "models/futuristic-car.obj",
-      step: "models/futuristic-car.step",
-      alt: "3D model of a futuristic car",
-    },
-  ];
-
-  const container = document.getElementById("models-container");
-  const searchBox = document.getElementById("searchBox");
-  const themeToggle = document.querySelector(".theme-toggle");
-
-  // Create a model card HTML block
-  function createModelCard(model) {
-    const card = document.createElement("div");
-    card.className = "model-section";
-    card.tabIndex = 0;
-    card.setAttribute("role", "region");
-    card.setAttribute("aria-label", model.title);
-
-    // Title
-    const title = document.createElement("h3");
-    title.textContent = model.title;
-    card.appendChild(title);
-
-    // Wrapper for model-viewer + spinner
-    const viewerWrapper = document.createElement("div");
-    viewerWrapper.style.position = "relative";
-
-    // Spinner
-    const spinner = document.createElement("div");
-    spinner.className = "spinner";
-    viewerWrapper.appendChild(spinner);
-
-    // model-viewer element
-    const modelViewer = document.createElement("model-viewer");
-    modelViewer.setAttribute("src", model.file);
-    modelViewer.setAttribute("alt", model.alt);
-    modelViewer.setAttribute("auto-rotate", "");
-    modelViewer.setAttribute("camera-controls", "");
-    modelViewer.setAttribute("loading", "lazy");
-    modelViewer.style.width = "100%";
-    modelViewer.style.height = "400px";
-
-    // When model loads, hide spinner & show viewer
-    modelViewer.addEventListener("load", () => {
-      modelViewer.setAttribute("loaded", "");
-      spinner.style.display = "none";
-    });
-
-    viewerWrapper.appendChild(modelViewer);
-    card.appendChild(viewerWrapper);
-
-    // Description (expand/collapse)
-    const desc = document.createElement("p");
-    desc.className = "model-description";
-    desc.textContent = model.description;
-    desc.setAttribute("tabindex", "0");
-    desc.setAttribute("aria-expanded", "false");
-    desc.setAttribute("role", "button");
-    desc.setAttribute("aria-label", "Toggle description for " + model.title);
-    desc.addEventListener("click", () => {
-      desc.classList.toggle("expanded");
-      const expanded = desc.classList.contains("expanded");
-      desc.setAttribute("aria-expanded", expanded.toString());
-    });
-    desc.addEventListener("keypress", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        desc.click();
+  <script>
+    // Data array for models: Update with your models and downloads
+    const modelsData = [
+      {
+        title: "Abstract Geometric Shape",
+        src: "models/abstract-shape.glb",
+        alt: "Abstract Geometric Shape",
+        downloads: [
+          { label: "STL", url: "models/abstract-shape.stl" },
+          { label: "GLB", url: "models/abstract-shape.glb" },
+          { label: "USDZ", url: "models/abstract-shape.usdz" }
+        ]
+      },
+      {
+        title: "3D Button UI Element",
+        src: "models/ui-button.glb",
+        alt: "3D Button UI Element",
+        downloads: [
+          { label: "STL", url: "models/ui-button.stl" },
+          { label: "GLB", url: "models/ui-button.glb" },
+          { label: "USDZ", url: "models/ui-button.usdz" }
+        ]
+      },
+      {
+        title: "Floating Digital Cube",
+        src: "models/floating-cube.glb",
+        alt: "Floating Digital Cube",
+        downloads: [
+          { label: "STL", url: "models/floating-cube.stl" },
+          { label: "GLB", url: "models/floating-cube.glb" },
+          { label: "USDZ", url: "models/floating-cube.usdz" }
+        ]
       }
+    ];
+
+    const container = document.getElementById('modelsContainer');
+
+    // Function to create each model section dynamically
+    function createModelSection(model) {
+      const section = document.createElement('div');
+      section.className = 'model-section';
+
+      section.innerHTML = `
+        <h3>${model.title}</h3>
+        <model-viewer 
+          src="${model.src}" 
+          alt="${model.alt}" 
+          auto-rotate 
+          camera-controls 
+          loading="lazy"
+        ></model-viewer>
+        <p class="license-note">Download the model in your preferred format:</p>
+        <div class="download-links">
+          ${model.downloads.map(d => `<a href="${d.url}" download class="download-button">${d.label}</a>`).join('')}
+        </div>
+      `;
+
+      return section;
+    }
+
+    // Render all models
+    modelsData.forEach(model => {
+      container.appendChild(createModelSection(model));
     });
-    card.appendChild(desc);
 
-    // License note
-    const licenseNote = document.createElement("p");
-    licenseNote.className = "license-note";
-    licenseNote.textContent = "Download the model in your preferred format:";
-    card.appendChild(licenseNote);
-
-    // Download links container
-    const downloads = document.createElement("div");
-    downloads.className = "download-links";
-
-    const createDownloadLink = (href, label) => {
-      const link = document.createElement("a");
-      link.href = href;
-      link.className = "download-button share-button";
-      link.setAttribute("download", "");
-      link.setAttribute("aria-label", `Download ${model.title} as ${label}`);
-      link.textContent = label;
-      return link;
-    };
-
-    downloads.appendChild(createDownloadLink(model.stl, "STL"));
-    downloads.appendChild(createDownloadLink(model.obj, "OBJ"));
-    downloads.appendChild(createDownloadLink(model.step, "STEP"));
-    card.appendChild(downloads);
-
-    // Share buttons container
-    const share = document.createElement("div");
-    share.className = "share-buttons";
-
-    // Twitter share button
-    const twitterBtn = document.createElement("a");
-    twitterBtn.className = "share-button";
-    twitterBtn.href = `https://twitter.com/intent/tweet?text=Check out this 3D model: ${encodeURIComponent(
-      model.title
-    )}&url=${encodeURIComponent(window.location.href)}`;
-    twitterBtn.target = "_blank";
-    twitterBtn.rel = "noopener noreferrer";
-    twitterBtn.setAttribute("aria-label", `Share ${model.title} on Twitter`);
-    twitterBtn.textContent = "🐦 Twitter";
-
-    // Facebook share button
-    const fbBtn = document.createElement("a");
-    fbBtn.className = "share-button";
-    fbBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-      window.location.href
-    )}`;
-    fbBtn.target = "_blank";
-    fbBtn.rel = "noopener noreferrer";
-    fbBtn.setAttribute("aria-label", `Share ${model.title} on Facebook`);
-    fbBtn.textContent = "📘 Facebook";
-
-    share.appendChild(twitterBtn);
-    share.appendChild(fbBtn);
-    card.appendChild(share);
-
-    return card;
-  }
-
-  // Render all models
-  function renderModels(filter = "") {
-    container.innerHTML = "";
-    const filtered = models.filter((m) =>
-      m.title.toLowerCase().includes(filter.toLowerCase())
-    );
-    if (filtered.length === 0) {
-      const noResult = document.createElement("p");
-      noResult.textContent = "No models found.";
-      container.appendChild(noResult);
-      return;
-    }
-    filtered.forEach((model) => {
-      container.appendChild(createModelCard(model));
+    // Return Home button functionality
+    const returnBtn = document.getElementById('returnHomeBtn');
+    returnBtn.addEventListener('click', () => {
+      window.location.href = 'index.html'; // change to your actual homepage URL
     });
-  }
 
-  // Initial render
-  renderModels();
+    // Theme toggle logic
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+    document.body.classList.toggle('light-theme', currentTheme === 'light');
+    themeToggleBtn.textContent = currentTheme === 'light' ? '🌙' : '☀️';
 
-  // Search event
-  searchBox.addEventListener("input", (e) => {
-    renderModels(e.target.value);
-  });
-
-  // Dark/Light mode toggle
-  function setTheme(theme) {
-    if (theme === "light") {
-      document.documentElement.setAttribute("data-theme", "light");
-      themeToggle.textContent = "🌞 Light Mode";
-      themeToggle.setAttribute("aria-pressed", "true");
-    } else {
-      document.documentElement.setAttribute("data-theme", "dark");
-      themeToggle.textContent = "🌙 Dark Mode";
-      themeToggle.setAttribute("aria-pressed", "false");
-    }
-  }
-
-  // Check saved preference or system preference
-  const savedTheme = localStorage.getItem("theme");
-  if (
-    savedTheme === "light" ||
-    (!savedTheme && window.matchMedia("(prefers-color-scheme: light)").matches)
-  ) {
-    setTheme("light");
-  } else {
-    setTheme("dark");
-  }
-
-  themeToggle.addEventListener("click", () => {
-    const current = document.documentElement.getAttribute("data-theme");
-    if (current === "dark") {
-      setTheme("light");
-      localStorage.setItem("theme", "light");
-    } else {
-      setTheme("dark");
-      localStorage.setItem("theme", "dark");
-    }
-  });
-</script>
-
+    themeToggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('light-theme');
+      const theme = document.body.classList.contains('light-theme') ? 'light' : 'dark';
+      localStorage.setItem('theme', theme);
+      themeToggleBtn.textContent = theme === 'light' ? '🌙' : '☀️';
+    });
+  </script>
 </body>
 </html>
