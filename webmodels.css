@@ -65,6 +65,12 @@ body::before {
   transition: background-color 0.4s ease;
 }
 
+.model-section h3 {
+  font-size: 1.5rem;
+  color: #003366;
+  margin-bottom: 1rem;
+}
+
 .download-button {
   display: inline-block;
   margin-top: 1rem;
@@ -84,18 +90,18 @@ body::before {
   box-shadow: 0 6px 14px rgba(0,95,163,0.7);
 }
 
-.license-note {
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-  color: #999;
-}
-
 .download-links {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 0.6rem;
   margin-top: 1rem;
+}
+
+.license-note {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #999;
 }
 
 /* Return Home Button fixed bottom-left */
