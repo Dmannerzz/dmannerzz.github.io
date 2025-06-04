@@ -54,6 +54,13 @@ body {
   margin-bottom: 1rem;
 }
 
+#webmodels h2,
+.model-section h3 {
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+
 .download-button {
   display: inline-block;
   margin-top: 1rem;
