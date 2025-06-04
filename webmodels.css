@@ -123,3 +123,25 @@ body::before {
     font-size: 1rem;
   }
 }
+
+.home-button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px; /* or right: 20px; to place in bottom-right */
+  background-color: #003366;
+  color: white;
+  padding: 12px 18px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  z-index: 1000;
+}
+
+.home-button:hover {
+  background-color: #0055aa;
+  transform: scale(1.05);
+}
+
