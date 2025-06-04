@@ -23,8 +23,7 @@
     const models = [
       {
         title: "Propeller Demo",
-        description:
-          "A rotating propeller model used for aerodynamic studies.",
+        description: "A rotating propeller model used for aerodynamic studies.",
         file: "models/propeller.glb",
         stl: "models/propeller.stl",
         obj: "models/propeller.obj",
@@ -53,10 +52,12 @@
     models.forEach((model) => {
       const section = document.createElement("div");
       section.className = "model-section";
+
+      // Note: we use data-src and remove src initially for lazy loading
       section.innerHTML = `
         <h3>${model.title}</h3>
         <model-viewer
-          src="${model.file}"
+          data-src="${model.file}"
           alt="${model.title}"
           auto-rotate
           camera-controls
@@ -72,6 +73,29 @@
       `;
       container.appendChild(section);
     });
+
+    // Lazy loading with Intersection Observer
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const mv = entry.target;
+          if (!mv.src) {
+            mv.src = mv.dataset.src;
+          }
+          obs.unobserve(mv);
+        }
+      });
+    });
+
+    // Observe all model-viewers and remove src initially
+    const modelViewers = document.querySelectorAll("model-viewer");
+    modelViewers.forEach((mv) => {
+      mv.dataset.src = mv.getAttribute("data-src") || "";
+      // Just to be sure, remove src attribute if it exists
+      mv.removeAttribute("src");
+      observer.observe(mv);
+    });
   </script>
 </body>
 </html>
+
