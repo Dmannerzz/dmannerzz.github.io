@@ -1,3 +1,4 @@
+/* Base dark theme */
 body {
   background: url('https://www.transparenttextures.com/patterns/dark-mosaic.png') repeat;
   background-color: #12121e;
@@ -5,8 +6,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-  position: relative;
   min-height: 100vh;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 body::before {
@@ -27,6 +28,7 @@ body::before {
   box-shadow: 0 4px 20px rgba(0,0,0,0.7);
   text-align: center;
   color: #f5f5f5;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 #webmodels h2,
@@ -45,7 +47,7 @@ body::before {
   box-shadow: 0 6px 15px rgba(0,0,0,0.8);
   text-align: center;
   color: #ccc;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.4s ease;
   cursor: pointer;
 }
 
@@ -60,6 +62,7 @@ body::before {
   border-radius: 10px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.5);
   background: #111;
+  transition: background-color 0.4s ease;
 }
 
 .download-button {
@@ -71,13 +74,14 @@ body::before {
   font-weight: 700;
   text-decoration: none;
   border-radius: 8px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
   box-shadow: 0 3px 8px rgba(0,122,204,0.5);
 }
 
 .download-button:hover {
   background-color: #005fa3;
   transform: scale(1.08);
+  box-shadow: 0 6px 14px rgba(0,95,163,0.7);
 }
 
 .license-note {
@@ -94,6 +98,98 @@ body::before {
   margin-top: 1rem;
 }
 
+/* Return Home Button fixed bottom-left */
+#returnHomeBtn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #007acc;
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0,122,204,0.7);
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+}
+
+#returnHomeBtn:hover {
+  background-color: #005fa3;
+}
+
+/* Theme toggle button fixed bottom-right */
+#themeToggleBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007acc;
+  border: none;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0,122,204,0.7);
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+  font-size: 18px;
+}
+
+#themeToggleBtn:hover {
+  background-color: #005fa3;
+}
+
+/* Light theme overrides */
+body.light-theme {
+  background-color: #f0f0f5;
+  color: #222;
+}
+
+body.light-theme::before {
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+body.light-theme #webmodels {
+  background-color: #ffffff;
+  color: #222;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+body.light-theme .model-section {
+  background: #f7f8fa;
+  color: #333;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+body.light-theme model-viewer {
+  background: #fff;
+}
+
+body.light-theme .download-button {
+  background-color: #0055aa;
+  color: white;
+  box-shadow: 0 3px 8px rgba(0,85,170,0.5);
+}
+
+body.light-theme .download-button:hover {
+  background-color: #003d80;
+  box-shadow: 0 6px 14px rgba(0,61,128,0.7);
+}
+
+body.light-theme #returnHomeBtn,
+body.light-theme #themeToggleBtn {
+  background-color: #0055aa;
+  box-shadow: 0 3px 8px rgba(0,85,170,0.7);
+}
+
+body.light-theme #returnHomeBtn:hover,
+body.light-theme #themeToggleBtn:hover {
+  background-color: #003d80;
+}
+
+/* Responsive */
 @media screen and (max-width: 768px) {
   .model-section model-viewer {
     height: 280px;
