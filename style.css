@@ -11,13 +11,6 @@ body {
   line-height: 1.6;
 }
 
-.project-card img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px; 
-  object-fit: cover;   
-}
-
 header {
   background: #1e1e2f;
   color: white;
