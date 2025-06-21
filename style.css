@@ -196,24 +196,5 @@ html {
   scroll-behavior: smooth;
 }
 
-.project-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.project-img {
-  width: 100%;
-  max-width: 600px;
-  height: auto;
-  border-radius: 8px;
-  display: block;
-  margin: 0 auto 1rem auto;
-}
-
 
   </style>
