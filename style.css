@@ -206,5 +206,14 @@ html {
   margin-right: auto;
 }
 
+.project-img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto 1rem auto;
+}
+
 
   </style>
