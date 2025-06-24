@@ -7,15 +7,15 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #f4f4f4;
+  background: linear-gradient(to bottom right, #f0f8ff, #e6f0ff);
   color: #333;
 }
 
 /* Navigation */
 nav {
-  background-color: #1e1e2f;
+  background: linear-gradient(to right, #003366, #0055aa);
   color: white;
-  padding: 10px 20px;
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -45,6 +45,7 @@ nav {
 .nav-links a {
   color: white;
   text-decoration: none;
+  font-weight: 500;
 }
 
 /* Project grid */
@@ -60,16 +61,16 @@ nav {
 /* Project cards */
 .project-card {
   background: white;
-  padding: 1rem;
+  padding: 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
 }
 
 .project-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
 }
 
 /* Images */
@@ -80,34 +81,34 @@ nav {
   margin-bottom: 1rem;
   border-radius: 8px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
 }
 
 .project-card:hover img {
   transform: scale(1.03);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 /* Download Button */
 .download-button {
   display: inline-block;
-  background-color: #003366;
+  background: linear-gradient(to right, #0072ff, #00c6ff);
   color: white;
-  padding: 10px 15px;
+  padding: 10px 20px;
   text-decoration: none;
   border-radius: 8px;
   font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .download-button:hover {
-  background-color: #0055aa;
   transform: scale(1.05);
+  box-shadow: 0 5px 20px rgba(0, 114, 255, 0.4);
 }
 
 /* Footer */
 footer {
-  background-color: #eee;
+  background-color: #dceeff;
   color: #333;
   text-align: center;
   padding: 1rem;
@@ -115,7 +116,7 @@ footer {
 }
 
 footer a {
-  color: #1e1e2f;
+  color: #0055aa;
   text-decoration: none;
 }
 
